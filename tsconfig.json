@@ -1,15 +1,15 @@
 {
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "target": "es6",
-        "module": "commonjs",
-        "declaration": false,
-        "outDir": "./dist",
-        "strict": true,
-        "allowSyntheticDefaultImports": true,
-        "strictPropertyInitialization": false
-      },
-      "include": ["src/", "index.ts"],
-      "exclude": ["node_modules/", "**/__tests__/*"]
+  "compilerOptions": {
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "target": "es6",
+      "module": "commonjs",
+      "declaration": false,
+      "outDir": "./dist",
+      "strict": true,
+      "allowSyntheticDefaultImports": true,
+      "strictPropertyInitialization": false
+    },
+    "include": ["src/", "index.ts"],
+    "exclude": ["node_modules/", "**/__tests__/*"]
 }
