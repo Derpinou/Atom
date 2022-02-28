@@ -11,11 +11,13 @@ interface CommandOptions {
 }
 
 export abstract class BaseCommand {
+
     protected client: Bot;
     public enabled: boolean;
     public name: string;
     public adminOnly: boolean;
     public bodyForm: RESTPostAPIApplicationCommandsJSONBody;
+
     constructor(client: Bot, {
         filename = "Unknow",
         enabled = true,
@@ -28,5 +30,6 @@ export abstract class BaseCommand {
         this.adminOnly = adminOnly;
         this.bodyForm = bodyForm;
     }
+    
     public abstract run(interaction: CommandInteraction, data: any) : void
 }
