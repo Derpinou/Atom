@@ -12,9 +12,8 @@ export class HelpCommand extends BaseCommand {
             }
         });
     }
+    
     async run(interaction: CommandInteraction, data: any) {
-        console.log("pong")
-        
-
+        interaction.reply({content: "pong", ephemeral: true})
     }
 }
