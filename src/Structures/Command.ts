@@ -28,5 +28,5 @@ export abstract class BaseCommand {
         this.adminOnly = adminOnly;
         this.bodyForm = bodyForm;
     }
-    abstract run(interaction: CommandInteraction, data: any) : void
+    public abstract run(interaction: CommandInteraction, data: any) : void
 }
