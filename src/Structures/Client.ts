@@ -5,6 +5,8 @@ import { BaseCommand } from "./Command";
 import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v9";
 import { promisify } from 'util';
+import {createConnection} from "typeorm";
+import { Guild } from "../entities/guild";
 const readDirAsync = promisify(readdir);
 
 export class Bot extends Client {
@@ -39,6 +41,19 @@ export class Bot extends Client {
                 console.error(error);
               }
         }
+
+        (async () => {
+            await createConnection({
+                type: "postgres",
+                host: process.env.PG_HOST as string,
+                port: parseInt(process.env.PG_PORT as string),
+                username: process.env.PG_USER as string,
+                password: process.env.PG_PASSWORD as string,
+                database: process.env.PG_DB as string,
+                synchronize: true,
+                entities: [Guild]
+            }).catch(console.error)
+        })()
     }
 
     async commandLoader(): Promise<void> {
