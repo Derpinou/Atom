@@ -54,7 +54,7 @@ export class Bot extends Client {
                 synchronize: true,
                 entities: [Guild]
             }).catch(console.error)
-        })()
+        })();
     }
 
     async commandHandler() {
@@ -62,10 +62,10 @@ export class Bot extends Client {
         if (!content || !content.length) return console.error('Please create folder in "commands" folder.');
         const groups: string[] = [];
         content.forEach(element => {
-            if (!element.includes('.')) groups.push(element); // If it's a folder
+            if (!element.includes('.')) groups.push(element);
         });
         for (const folder of groups) {
-        const files = await readDirAsync(`./dist/src/commands/${folder}`).catch(console.error)
+        const files = await readDirAsync(`./dist/src/commands/${folder}`).catch(console.error);
             if (!files || !files.length) return console.error('Please create files in "' + folder + '" folder.');
             files.forEach(element => {
                 try {
@@ -77,9 +77,9 @@ export class Bot extends Client {
                     }
                     this.commands.set(command.name, command);
                 } catch (e) {
-                    console.error(`Unable to load command ${element}: ${e}`)
+                    console.error(`Unable to load command ${element}: ${e}`);
                 }
-        })
+        });
         }
     }
     
@@ -91,7 +91,7 @@ export class Bot extends Client {
             if (!element.includes('.')) groups.push(element); // If it's a folder
         });
         for (const folder of groups) {
-            const files = await readDirAsync(`./dist/src/events/${folder}`)
+            const files = await readDirAsync(`./dist/src/events/${folder}`);
             if (!files || !files.length) return console.error('Please create files in "' + folder + '" folder.');
             for (const evt of files) {
                 try {
