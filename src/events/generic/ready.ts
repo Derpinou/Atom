@@ -5,8 +5,8 @@ export class ReadyEvent extends BaseEvent {
     constructor(client: Bot) {
         super(client)
     }
-    
+
     async run() {
-        console.log(`${(this.client.user || {}).tag} ready to help ${this.client.guilds.cache.size}`);
+        console.log(`${(this.client.user || {}).tag} ready to help ${this.client.guilds.cache.size} guilds`);
     }
 }
