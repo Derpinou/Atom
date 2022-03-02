@@ -14,6 +14,6 @@ export class HelpCommand extends BaseCommand {
     }
 
     async run(interaction: CommandInteraction, data: any) {
-        interaction.reply({content: "pong", ephemeral: true})
+        interaction.reply({content: data.translate("generic/ping:pong"), ephemeral: true})
     }
 }

@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 
 
@@ -9,4 +9,9 @@ import { Entity, PrimaryColumn } from 'typeorm';
 export class Guild {
     @PrimaryColumn()
     id: string;
+
+    @Column({
+        default: "en-EN"
+    })
+    language: string;
 }

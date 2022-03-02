@@ -7,12 +7,17 @@ import { Routes } from "discord-api-types/v9";
 import { promisify } from 'util';
 import {createConnection} from "typeorm";
 import { Guild } from "../entities/guild";
+import i18n from "../utils/i18n";
+import { TFunction } from "i18next";
+import * as constants from "../utils/constants";
 const readDirAsync = promisify(readdir);
 const readFileAsync = promisify(readFile);
 
 export class Bot extends Client {
 
     public commands: Collection<string, BaseCommand>;
+    public translations: Map<string, TFunction>;
+    public constants: constants.Constants;
 
     constructor(token: string) {
         super({
@@ -20,11 +25,15 @@ export class Bot extends Client {
             intents: [Object.values(Intents.FLAGS)]
         });
         this.commands = new Collection();
+        this.constants = constants;
+        //@ts-ignore
+
         this.init(token);
     }
 
     private async init(token: string) {
         await this.login(token).catch(console.error);
+        this.translations = await i18n();
         await this.commandHandler();
         await this.eventLoader();
 
