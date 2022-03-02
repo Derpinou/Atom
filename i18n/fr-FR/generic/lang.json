@@ -1,0 +1,5 @@
+{
+    "success": "Langage changé avec succés `{{old}}` -> `{{new}}`",
+    "error_1": "Veuillez choisir un langage",
+    "error_2": "Veuillez choisir un langage différent de l'actuel (`{{lang}}`)"
+}
